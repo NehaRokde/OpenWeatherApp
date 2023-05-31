@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": -65.9988,
+    "lat": 46.5001
+  },
+  "weather": [{
+    "id": 801,
+    "main": "Clouds",
+    "description": "few clouds",
+    "icon": "02d"
+  }],
+  "base": "stations",
+  "main": {
+    "temp": 29.75,
+    "feels_like": 28.83,
+    "temp_min": 29.75,
+    "temp_max": 29.75,
+    "pressure": 1015,
+    "humidity": 34,
+    "sea_level": 1015,
+    "grnd_level": 999
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3.74,
+    "deg": 261,
+    "gust": 4.11
+  },
+  "clouds": {
+    "all": 11
+  },
+  "dt": 1685565628,
+  "sys": {
+    "country": "CA",
+    "sunrise": 1685522148,
+    "sunset": 1685578070
+  },
+  "timezone": -10800,
+  "id": 6087430,
+  "name": "New Brunswick",
+  "cod": 200
+}
