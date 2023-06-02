@@ -18,6 +18,7 @@ import com.app.openweatherapp.utils.getFormattedDate
 import com.app.openweatherapp.utils.helpers.EpochConverter
 
 
+// TODO - can enhanced and added more UI for week hourly forecast, 1 week forecast.
 @Composable
 fun WeatherScreen(result: HomeState?) {
 

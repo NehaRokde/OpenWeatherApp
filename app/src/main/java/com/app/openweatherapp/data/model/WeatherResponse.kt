@@ -3,7 +3,9 @@ package com.app.openweatherapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherResponse(
+
+data class WeatherResponse
+    (
     @SerializedName("base")
     val base: String,
     @SerializedName("clouds")

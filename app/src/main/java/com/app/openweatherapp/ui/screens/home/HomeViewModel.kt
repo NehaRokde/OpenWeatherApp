@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.openweatherapp.data.location.LocationTracker
 import com.app.openweatherapp.data.repository.WeatherRepository
-import com.app.openweatherapp.utils.Resource
+import com.app.openweatherapp.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,19 +24,19 @@ class HomeViewModel @Inject constructor(
 
     val currentLocationWeatherData: MutableState<HomeState?> = mutableStateOf(null)
 
-    fun getCurrentWeatherData(latitude: Double, longitude: Double) = viewModelScope.launch {
+    private fun getCurrentWeatherData(latitude: Double, longitude: Double) = viewModelScope.launch {
 
         when (val result = weatherRepository.getWeatherByLocation(latitude, longitude)) {
-            is Resource.Loading -> {
+            is NetworkResult.Loading -> {
                 currentLocationWeatherData.value = HomeState(isLoading = true)
 
             }
-            is Resource.Success -> {
+            is NetworkResult.Success -> {
                 result.data?.let {
                     currentLocationWeatherData.value = HomeState(data = result.data)
                 }
             }
-            is Resource.Error -> {
+            is NetworkResult.Error -> {
                 currentLocationWeatherData.value = HomeState(error = "Something went wrong")
             }
         }
@@ -46,8 +46,6 @@ class HomeViewModel @Inject constructor(
     fun getCurrentLocation() {
         viewModelScope.launch(Dispatchers.IO) {
             currentLocation = locationTracker.getCurrentLocation()
-            Log.e("currentLocation", currentLocation?.latitude.toString())
-            Log.e("currentLocation", currentLocation?.longitude.toString())
             if (currentLocation != null) {
                 getCurrentWeatherData(currentLocation!!.latitude, currentLocation!!.longitude)
             } else {

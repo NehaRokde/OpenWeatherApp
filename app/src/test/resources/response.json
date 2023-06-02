@@ -11,20 +11,20 @@
   }],
   "base": "stations",
   "main": {
-    "temp": 29.75,
     "feels_like": 28.83,
-    "temp_min": 29.75,
-    "temp_max": 29.75,
-    "pressure": 1015,
+    "grnd_level": 999,
     "humidity": 34,
+    "pressure": 1015,
     "sea_level": 1015,
-    "grnd_level": 999
+    "temp": 29.75,
+    "temp_min": 29.75,
+    "temp_max": 29.75
   },
   "visibility": 10000,
   "wind": {
-    "speed": 3.74,
     "deg": 261,
-    "gust": 4.11
+    "gust": 4.11,
+    "speed": 3.74
   },
   "clouds": {
     "all": 11
@@ -37,6 +37,6 @@
   },
   "timezone": -10800,
   "id": 6087430,
-  "name": "New Brunswick",
+  "name": "New York",
   "cod": 200
 }

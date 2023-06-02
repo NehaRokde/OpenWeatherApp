@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName
 
 data class Main(
     @SerializedName("feels_like")
-    val feelsLike: Double,
+    val feelsLike: Double = 0.0,
     @SerializedName("grnd_level")
-    val grndLevel: Int,
+    val grndLevel: Int =0,
     @SerializedName("humidity")
-    val humidity: Int,
+    val humidity: Int =0,
     @SerializedName("pressure")
-    val pressure: Int,
+    val pressure: Int =0,
     @SerializedName("sea_level")
-    val seaLevel: Int,
+    val seaLevel: Int=0,
     @SerializedName("temp")
-    val temp: Double,
+    val temp: Double=0.0,
     @SerializedName("temp_max")
-    val tempMax: Double,
+    val tempMax: Double =0.0,
     @SerializedName("temp_min")
-    val tempMin: Double
+    val tempMin: Double =0.0
 )

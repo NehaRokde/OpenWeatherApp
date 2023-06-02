@@ -1,5 +1,6 @@
 package com.app.openweatherapp.ui.screens.search
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,7 +16,6 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -50,6 +50,7 @@ fun SearchScreen(onHome: () -> Unit, viewModel: SearchCityViewModel = hiltViewMo
                     onValueChange = {
                         cityName.value = it
                         viewModel.getWeatherData(cityName.value)
+                        Log.e("City", cityName.value)
                     },
                     enabled = true,
                     singleLine = true,

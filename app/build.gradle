@@ -48,6 +48,14 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
+
 }
 
 dependencies {
@@ -62,6 +70,7 @@ dependencies {
 
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-compose:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     def coil_version = "2.1.0"
     implementation "io.coil-kt:coil-compose:$coil_version"
@@ -72,8 +81,8 @@ dependencies {
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.2'
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
 
     def hilt_version = "2.43.2"
     implementation "com.google.dagger:hilt-android:$hilt_version"
@@ -81,11 +90,11 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:1.1.0-alpha01"
 
     // Kotlin Coroutines
-    def coroutine_version ="1.6.4"
+    def coroutine_version = "1.6.4"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.9.0'
 
 
     // Location
@@ -99,26 +108,30 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.3"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
-    androidTestImplementation "androidx.navigation:navigation-testing:2.5.3"
-    testImplementation "androidx.compose.ui:ui-test-junit4:${compose_ui_version}"
+    testImplementation "androidx.compose.ui:ui-test-junit4:1.4.3"
+    debugImplementation "androidx.compose.ui:ui-test-junit4:1.4.3"
 
-    // Mockito dependencies
-    testImplementation "org.mockito:mockito-core:3.0.0"
-    testImplementation "org.mockito:mockito-inline:3.0.0"
-    testImplementation 'io.mockk:mockk:1.12.0'
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
 
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    //coroutine
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
-    // Coroutines testing dependencies
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
-
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
-
+    //mockwebserver`
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
+
+    //mockito
+    testImplementation 'org.mockito:mockito-core:3.6.0'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+
+    // MockK dependencies for testing
+    testImplementation "io.mockk:mockk:1.12.0"
+    androidTestImplementation "io.mockk:mockk-android:1.12.0"
+
+
 }
